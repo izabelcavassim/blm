@@ -4,11 +4,30 @@
 #' Fits a model, given as a formula, optionally with data provided through the "..." parameter.
 #'
 #' @param model   A formula describing the model.
-#' @param ...     Additional data, for example a data frame. Feel free to add other options.
+#' @param ...     Additional data, for example a data frame.
 #'
 #' @return A fitted model.
 #' @export
+# Creating the class blm
+
 blm <- function(model, ...) {
-  # implement your function here...
+  arguments <- list(...)
+  alpha = arguments$alpha
+  beta = arguments$beta
+  prior <- make_prior(model, alpha,...) # it returns alpha
+  posterior <- update(model, prior, beta, ...)
+
+  # Defining the class blm
+  obj <- list(data = model.frame(model),
+              variances = posterior$S_xy,
+              prior = prior,
+              alpha = alpha,
+              beta = beta,
+              posterior = posterior,
+              formula = model,
+              sys = sys.call(),
+              coefficients = posterior$m_xy)
+  class(obj) <- 'blm'
+  obj
 }
 

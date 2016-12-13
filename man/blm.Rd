@@ -9,7 +9,7 @@ blm(model, ...)
 \arguments{
 \item{model}{A formula describing the model.}
 
-\item{...}{Additional data, for example a data frame. Feel free to add other options.}
+\item{...}{Additional data, for example a data frame.}
 }
 \value{
 A fitted model.
