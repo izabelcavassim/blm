@@ -2,3 +2,5 @@
 
 export(blm)
 export(make_prior)
+export(update)
+import(stats)

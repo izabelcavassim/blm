@@ -2,7 +2,7 @@
 % Please edit documentation in R/make_prior.R
 \name{make_prior}
 \alias{make_prior}
-\title{Make the prior distribution}
+\title{Make the Prior Distribution}
 \usage{
 make_prior(model, alpha, ...)
 }

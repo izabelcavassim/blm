@@ -1,5 +1,5 @@
 
-#' Make the prior distribution
+#' Make the Prior Distribution
 #'
 #' It takes the model description and the prior precision alpha to build the prior distribution
 #'
