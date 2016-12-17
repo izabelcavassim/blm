@@ -3,7 +3,7 @@
 #'
 #' @param object a model object of class blm for which the extraction of model fitted values is desired.
 #' @param ... additional data.
-#' @return Fitted values extracted from the object model of class blm.
+#' @return fitted values extracted from the object model of class blm.
 #' @import stats
 #' @export
 

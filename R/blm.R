@@ -3,10 +3,10 @@
 #'
 #' Fits a model, given as a formula, optionally with data provided through the "..." parameter.
 #'
-#' @param model   A formula describing the model.
-#' @param ...     Additional data.
+#' @param model   a formula describing the model.
+#' @param ...     additional data.
 #'
-#' @return A fitted model.
+#' @return a fitted model.
 #' @export
 # Creating the class blm
 
