@@ -7,7 +7,7 @@
 #' @param prior The prior distribution (mean and variance)
 #' @param alpha Hyperparameter of prior distribution.
 #' @param beta Hyperparameter of posterior distribution.
-#' @param ...     Additional data, for example a data frame.
+#' @param ...     Additional data, for example a new data frame.
 #' @return A fitted model.
 #' @import stats
 #' @export

@@ -4,7 +4,7 @@
 #' Fits a model, given as a formula, optionally with data provided through the "..." parameter.
 #'
 #' @param model   A formula describing the model.
-#' @param ...     Additional data, for example a data frame.
+#' @param ...     Additional data.
 #'
 #' @return A fitted model.
 #' @export
