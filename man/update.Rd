@@ -15,7 +15,7 @@ update(model, prior, alpha, beta, ...)
 
 \item{beta}{Hyperparameter of posterior distribution.}
 
-\item{...}{Additional data, for example a data frame.}
+\item{...}{Additional data, for example a new data frame.}
 }
 \value{
 A fitted model.

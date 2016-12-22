@@ -7,12 +7,12 @@
 blm(model, ...)
 }
 \arguments{
-\item{model}{A formula describing the model.}
+\item{model}{a formula describing the model.}
 
-\item{...}{Additional data, for example a data frame.}
+\item{...}{additional data.}
 }
 \value{
-A fitted model.
+a fitted model.
 }
 \description{
 Fits a model, given as a formula, optionally with data provided through the "..." parameter.
