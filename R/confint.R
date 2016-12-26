@@ -1,5 +1,7 @@
-#' Model confint
-#' confint is inspired by stats function and computes the confidence intervals for the fitted arguments of a blm model.
+
+#' @title Model confint.
+#'
+#' @description Confint is inspired by stats function and computes the confidence intervals for the fitted arguments of a blm model.
 #'
 #' @param object a model object of class blm for which has at least one predictor variable.
 #' @param parm a specified parameter/argument from the model to be extracted the confidence intervals. It could be numbers (columns of the model data.frame) or names: 'y', 'x', 'z'...
@@ -9,7 +11,16 @@
 #' @import stats
 #' @export
 
-confint.blm <- function(object, parm = NULL, level= 0.95, ...) {
+noresponse_matrix <- function(model, ...){
+  responseless = delete.response(terms(model))
+
+  data_frame = model.frame(responseless, ...)
+
+  res = model.matrix(responseless, data_frame)
+  return(res)
+}
+
+confint.blm <- function(object, parm, level= 0.95, ...) {
   theta_x = noresponse_matrix(object$formula, ...)
   beta = object$beta
   S_xy = object$posterior$S_xy
@@ -26,8 +37,8 @@ confint.blm <- function(object, parm = NULL, level= 0.95, ...) {
     }
 
     fitted <- predict(object, ...)
-    quantil_lower <- qnorm(p = (1-level)/2, mean = fitted$means, sd = sds, lower.tail = F)
-    quantil_upper <- qnorm(p = (1 - (1 -level)/2), mean = fitted$means, sd = sds, lower.tail = F)
+    quantil_lower <- qnorm(p = (1-level)/2, mean = fitted, sd = sds, lower.tail = F)
+    quantil_upper <- qnorm(p = (1 - (1 -level)/2), mean = fitted, sd = sds, lower.tail = F)
 
     quantiles = cbind(quantil_lower, quantil_upper)
     colnames(quantiles) = c((1-level)/2, (1 - (1 -level)/2))
@@ -51,3 +62,4 @@ confint.blm <- function(object, parm = NULL, level= 0.95, ...) {
   rownames(quantiles) = parm
   return(quantiles)
 }
+

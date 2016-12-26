@@ -1,7 +1,7 @@
 
-#' Bayesian linear model.
+#' @title Bayesian linear model.
 #'
-#' coef is inspired in the generic function of stats and extracts model coefficients from objects .
+#' @description coef is inspired in the generic function of stats and extracts model coefficients from objects .
 #'
 #' @param object a model object of class blm for which has at least one predictor variable.
 #' @param ... additional arguments.

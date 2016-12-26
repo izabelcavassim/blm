@@ -1,7 +1,7 @@
 
-#' Bayesian linear model.
+#' @title Bayesian linear model.
 #'
-#' Fits a model, given as a formula, optionally with data provided through the "..." parameter.
+#' @description Fits a model, given as a formula, optionally with data provided through the "..." parameter.
 #'
 #' @param model A formula describing the model.
 #' @param prior The prior distribution (mean and variance)
@@ -16,7 +16,7 @@
 update <- function(model, prior, alpha, beta, ...){
   arguments <- list(...)
 
-  if(alpha < 0 || beta  < 0) stop('alpha and beta must be positive!')
+  if(alpha < 0 || beta  < 0) stop('alpha and beta must be positive and explicitly declared!')
 
   data <- model.frame(model)
   theta_x = noresponse_matrix(model)

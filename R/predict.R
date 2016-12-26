@@ -28,5 +28,17 @@ predict.blm <- function(object, ...) {
     means[i] = sum(t(m_xy) %*% theta_x[i,])
   }
 
-  return(list(means = means))
+  # Making the output in the same way as lm
+  names(means) <- seq(1, length(means))
+
+  return(means)
+}
+
+noresponse_matrix <- function(model, ...){
+  responseless = delete.response(terms(model))
+
+  data_frame = model.frame(responseless, ...)
+
+  res = model.matrix(responseless, data_frame)
+  return(res)
 }

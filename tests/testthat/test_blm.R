@@ -20,6 +20,7 @@ test_that("we can fit blm objects", {
   # If it throws an error when beta and alpha are not positive
   # Alpha negative
   expect_that(blm(y~ x, alpha = -1, beta = 2),  throws_error())
+
   # Beta negative
   expect_that(blm(y~ x, alpha = 1, beta = -2),  throws_error())
 

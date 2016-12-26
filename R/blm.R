@@ -1,7 +1,7 @@
 
-#' Bayesian linear model.
+#' @title Bayesian linear model.
 #'
-#' Fits a model, given as a formula, optionally with data provided through the "..." parameter.
+#' @description Fits a model, given as a formula, optionally with data provided through the "..." parameter.
 #'
 #' @param model   a formula describing the model.
 #' @param ...     additional data.
