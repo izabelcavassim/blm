@@ -1,5 +1,5 @@
-#' Model fitted
-#' fitted is inspired by the generic function from stats which extracts fitted values (response)
+#' @title Model fitted
+#' @description fitted is inspired by the generic function from stats which extracts fitted values (response)
 #'
 #' @param object a model object of class blm for which the extraction of model fitted values is desired.
 #' @param ... additional data.
