@@ -10,10 +10,10 @@
 #' @export
 
 make_prior <- function(model, alpha, ...){
-  arguments <- list(...)
+  arguments = list(...)
   if (alpha < 0) stop('alpha must be positive and explicitly declared!')
 
-  model <- model.matrix(model)
+  model = model.matrix(model)
   return(list(m_xy = rep(0, ncol(model)), S_xy = diag(1/alpha, nrow = ncol(model))))
 }
 

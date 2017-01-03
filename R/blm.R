@@ -11,11 +11,11 @@
 # Creating the class blm
 
 blm <- function(model, ...) {
-  arguments <- list(...)
+  arguments = list(...)
   alpha = arguments$alpha
   beta = arguments$beta
-  prior <- make_prior(model, alpha,...) # it returns alpha
-  posterior <- update(model, prior, beta, ...)
+  prior = make_prior(model, alpha,...) # it returns alpha
+  posterior = update(model, prior, beta, ...)
 
   # Defining the class blm
   obj <- list(data = model.frame(model),

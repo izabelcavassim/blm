@@ -29,7 +29,7 @@ predict.blm <- function(object, ...) {
   }
 
   # Making the output in the same way as lm
-  names(means) <- seq(1, length(means))
+  names(means) = seq(1, length(means))
 
   return(means)
 }

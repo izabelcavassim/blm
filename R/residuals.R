@@ -8,6 +8,7 @@
 #' @export
 #' @seealso coefficients.blm, fitted.blm, blm, predict.blm
 
+# Something is wrong with my residuals, it seems to be always positive
 residuals.blm <- function(object, ...){
   observed = object$data[,1]
   x = as.data.frame(object$data[,2])

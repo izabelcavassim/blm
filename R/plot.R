@@ -5,7 +5,7 @@
 #' @parm ... additional arguments.
 #' @return plot of Residuals vs Fitted values.
 #' @export
-#' @seealso blm, fitted.blm, residuals.blm
+#' @seealso \code{\link[blm]}, \code{\link[blm]{fitted}}, \code{\link[blm]{residuals}}
 
 plot.blm <- function(object, ...) {
   data = object$data
@@ -16,12 +16,14 @@ plot.blm <- function(object, ...) {
     fit = fitted(object)
     resid = residuals(object)
 
+    plot(fit, resid, pch = 20, xlab = 'Fitted values', ylab = 'Residuals', main = 'Residuals vs Fitted')
+    abline(h = 0, col = "gray60", lty = 2)
     # Transforming in a dataframe
     plot_data = as.data.frame(cbind(fit, resid))
 
     # Plotting with smoothing function defined by the formula of blm object
-    p1 <- ggplot(plot_data, aes(x = fit, y = resid)) + geom_point() + geom_smooth(formula = object$formula, colour = 'red') + theme_bw()
-    p1 <- p1 + geom_hline(yintercept=0, linetype="dotted") +
+    p1 = ggplot(plot_data, aes(x = fit, y = resid)) + geom_point() + geom_smooth(formula = object$formula, colour = 'red') + theme_bw()
+    p1 = p1 + geom_hline(yintercept=0, linetype="dotted") +
     labs(
       x = 'Fitted values',
       y = 'Residuals',

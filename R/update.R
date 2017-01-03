@@ -14,14 +14,14 @@
 # Creating the class blm
 
 update <- function(model, prior, alpha, beta, ...){
-  arguments <- list(...)
+  arguments = list(...)
 
   if(alpha < 0 || beta  < 0) stop('alpha and beta must be positive and explicitly declared!')
 
-  data <- model.frame(model)
+  data = model.frame(model)
   theta_x = noresponse_matrix(model)
-  S_xy <- solve(prior$S_xy + beta * t(theta_x) %*% theta_x)
-  m_xy <- beta * S_xy %*% t(theta_x) %*% y
+  S_xy = solve(prior$S_xy + beta * t(theta_x) %*% theta_x)
+  m_xy = beta * S_xy %*% t(theta_x) %*% y
   return(list(m_xy=m_xy, S_xy=S_xy))
 
 }

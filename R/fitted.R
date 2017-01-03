@@ -5,10 +5,11 @@
 #' @param ... additional data.
 #' @return fitted values extracted from the object model of class blm.
 #' @import stats
+#' @seealso \code{\link[blm]}, \code{\link[blm]{fitted}}, \code{\link[blm]{residuals}}
 #' @export
 
 # You can only input the old data here, the newdata will be ignored in the predict function
 fitted.blm <- function(object, ...) {
-  fit <- predict(object)
+  fit = predict(object)
   fit
 }

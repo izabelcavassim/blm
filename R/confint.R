@@ -36,9 +36,9 @@ confint.blm <- function(object, parm, level= 0.95, ...) {
       sds[i] = sqrt(S_xxy)
     }
 
-    fitted <- predict(object, ...)
-    quantil_lower <- qnorm(p = (1-level)/2, mean = fitted, sd = sds, lower.tail = F)
-    quantil_upper <- qnorm(p = (1 - (1 -level)/2), mean = fitted, sd = sds, lower.tail = F)
+    fitted = predict(object, ...)
+    quantil_lower = qnorm(p = (1-level)/2, mean = fitted, sd = sds, lower.tail = F)
+    quantil_upper = qnorm(p = (1 - (1 -level)/2), mean = fitted, sd = sds, lower.tail = F)
 
     quantiles = cbind(quantil_lower, quantil_upper)
     colnames(quantiles) = c((1-level)/2, (1 - (1 -level)/2))
@@ -47,14 +47,13 @@ confint.blm <- function(object, parm, level= 0.95, ...) {
     return(quantiles)
   }
 
-  # Mean and variance of the coefficients
-  # I will give that as default
+  # Other coefficients than 'y'
   if(is.null(parm)){
     parm = rownames(object$coefficients)
   }
 
-  quantil_lower <- qnorm(p = (1-level)/2, mean = m_xy[parm,], sd = sqrt(diag(S_xy)[parm]), lower.tail = F)
-  quantil_upper <- qnorm(p = (1 - (1 -level)/2), mean =m_xy[parm,], sd = sqrt(diag(S_xy)[parm]), lower.tail = F)
+  quantil_lower = qnorm(p = (1-level)/2, mean = m_xy[parm,], sd = sqrt(diag(S_xy)[parm]), lower.tail = F)
+  quantil_upper = qnorm(p = (1 - (1 -level)/2), mean =m_xy[parm,], sd = sqrt(diag(S_xy)[parm]), lower.tail = F)
 
   quantiles = cbind(quantil_lower, quantil_upper)
 
