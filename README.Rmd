@@ -36,17 +36,17 @@ Open R and then follow the 3 next steps:
 
 1. You first need to install the devtools package through CRAN.
 
-```{R}
+```{R eval=FALSE}
 install.packages("devtools")
 ```
 
 2. Load the package just installed. 
-```{R}
+```{R eval=FALSE}
 library("devtools")
 ```
 
 3. And then use the 'install_github' feature to access the blm package
-```{R}
+```{R eval=FALSE}
 install_github("izabelcavassim/blm")
 ```
 
