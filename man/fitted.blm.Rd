@@ -2,8 +2,7 @@
 % Please edit documentation in R/fitted.R
 \name{fitted.blm}
 \alias{fitted.blm}
-\title{Model fitted
-fitted is inspired by the generic function from stats which extracts fitted values (response)}
+\title{Model fitted}
 \usage{
 \method{fitted}{blm}(object, ...)
 }
@@ -16,7 +15,9 @@ fitted is inspired by the generic function from stats which extracts fitted valu
 fitted values extracted from the object model of class blm.
 }
 \description{
-Model fitted
 fitted is inspired by the generic function from stats which extracts fitted values (response)
+}
+\seealso{
+\code{\link[blm]}, \code{\link[blm]{fitted}}, \code{\link[blm]{residuals}}
 }
 
