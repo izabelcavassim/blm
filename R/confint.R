@@ -12,12 +12,7 @@
 
 confint.blm <- function(object, parm, level= 0.95, ...) {
 
-  # I decided to include the noresponse_matrix function inside here
-  responseless = delete.response(terms(object$formula))
-  data_frame = model.frame(responseless, ...)
-  res = model.matrix(responseless, data_frame)
-
-  theta_x = res
+  theta_x = noresponse_matrix(object$formula)
   beta = object$beta
   S_xy = object$posterior$S_xy
   m_xy = object$posterior$m_xy
@@ -56,4 +51,13 @@ confint.blm <- function(object, parm, level= 0.95, ...) {
   colnames(quantiles) = c((1-level)/2, (1 - (1 -level)/2))
   rownames(quantiles) = parm
   return(quantiles)
+}
+
+noresponse_matrix <- function(model, ...){
+  responseless = delete.response(terms(model))
+
+  data_frame = model.frame(responseless, ...)
+
+  res = model.matrix(responseless, data_frame)
+  return(res)
 }

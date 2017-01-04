@@ -1,6 +1,6 @@
 
-#' Model prediction
-#' predict is inspired by the generic function from stats and make predictions based on the fitted blm model object.
+#' @title Model prediction
+#' @description Predict is inspired by the generic function from stats and make predictions based on the fitted blm model object.
 #'
 #' @param object a model object of class blm for which prediction is desired.
 #' @param ... additional data (explanatory variables) in data.frame format that affects the predictions. If ommited, the fitted values are used.
@@ -10,6 +10,7 @@
 
 # Creating polymorphic function predict
 predict.blm <- function(object, ...) {
+  arguments = list(...)
 
   formula = object$formula
   posterior = object$posterior
