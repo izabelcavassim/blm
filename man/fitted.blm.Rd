@@ -18,6 +18,6 @@ fitted values extracted from the object model of class blm.
 fitted is inspired by the generic function from stats which extracts fitted values (response)
 }
 \seealso{
-\code{\link[blm]}, \code{\link[blm]{fitted}}, \code{\link[blm]{residuals}}
+blm, fitted.blm, residuals.blm
 }
 

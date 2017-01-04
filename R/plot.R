@@ -1,12 +1,11 @@
 #' @title Plot blm object
 #'
 #' @description It returns different plots of object blm
-#' @parm object an blm object for which the plots are desired.
-#' @parm ... additional arguments.
+#' @param object an blm object for which the plots are desired.
+#' @param ... additional arguments.
 #' @return plot of Residuals vs Fitted values.
 #' @export
-#' @seealso \code{\link[blm]}, \code{\link[blm]{fitted}}, \code{\link[blm]{residuals}}
-
+#' @seealso blm, fitted.
 plot.blm <- function(object, ...) {
   data = object$data
 
@@ -16,10 +15,10 @@ plot.blm <- function(object, ...) {
     fit = fitted(object)
     resid = residuals(object)
 
-    plot(fit, resid, pch = 20, xlab = 'Fitted values', ylab = 'Residuals', main = 'Residuals vs Fitted')
-    abline(h = 0, col = "gray60", lty = 2)
+    #plot(fit, resid, pch = 20, xlab = 'Fitted values', ylab = 'Residuals', main = 'Residuals vs Fitted')
+    #abline(h = 0, col = "gray60", lty = 2)
     # Transforming in a dataframe
-    plot_data = as.data.frame(cbind(fit, resid))
+    #plot_data = as.data.frame(cbind(fit, resid))
 
     # Plotting with smoothing function defined by the formula of blm object
     p1 = ggplot(plot_data, aes(x = fit, y = resid)) + geom_point() + geom_smooth(formula = object$formula, colour = 'red') + theme_bw()

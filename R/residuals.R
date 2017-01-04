@@ -1,8 +1,8 @@
 #' @title Model Residuals
 #'
 #' @description It returns the model residuals from a blm object.
-#' @parm object an blm object for which the model residual is desired.
-#' @parm ... additional arguments.
+#' @param object an blm object for which the model residual is desired.
+#' @param ... additional arguments.
 #' @return residuals extracted from the blm object.
 #' @import stats
 #' @export

@@ -5,7 +5,7 @@
 #'
 #' @param model A formula describing the model.
 #' @param alpha The prior precision, the hyperparameter of Prior Distribution
-#'
+#' @param ... additional data
 #' @return The mean and covariance matrix
 #' @export
 

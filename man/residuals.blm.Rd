@@ -6,6 +6,11 @@
 \usage{
 \method{residuals}{blm}(object, ...)
 }
+\arguments{
+\item{object}{an blm object for which the model residual is desired.}
+
+\item{...}{additional arguments.}
+}
 \value{
 residuals extracted from the blm object.
 }

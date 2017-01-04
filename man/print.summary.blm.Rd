@@ -6,6 +6,11 @@
 \usage{
 \method{print}{summary.blm}(object, ...)
 }
+\arguments{
+\item{object}{an blm object for which summary is desired.}
+
+\item{...}{additional arguments.}
+}
 \value{
 MAKE HERE IN MORE DETAIL.
 }

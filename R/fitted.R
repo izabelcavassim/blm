@@ -5,7 +5,7 @@
 #' @param ... additional data.
 #' @return fitted values extracted from the object model of class blm.
 #' @import stats
-#' @seealso \code{\link[blm]}, \code{\link[blm]{fitted}}, \code{\link[blm]{residuals}}
+#' @seealso blm, fitted.blm, residuals.blm
 #' @export
 
 # You can only input the old data here, the newdata will be ignored in the predict function

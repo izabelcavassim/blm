@@ -1,8 +1,8 @@
 #' @title Model print
 #'
 #' @description It prints the called function and the coefficients of a blm model object.
-#' @parm object an blm object for which print is desired.
-#' @parm ... additional arguments.
+#' @param object an blm object for which print is desired.
+#' @param ... additional arguments.
 #' @return The linear function used and coefficients of an object of class "blm".
 #' @import stats
 #' @export

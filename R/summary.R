@@ -1,8 +1,8 @@
 #' @title blm Summary
 #'
 #' @description It is inpired by the generic and lm function 'summary' and it aims to format and summarize the statistical outputs from an object of class 'blm'.
-#' @parm object an blm object for which summary is desired.
-#' @parm ... additional arguments.
+#' @param object an blm object for which summary is desired.
+#' @param ... additional arguments.
 #' @return MAKE HERE IN MORE DETAIL.
 #' @import stats
 #' @export

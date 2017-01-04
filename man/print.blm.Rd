@@ -6,6 +6,11 @@
 \usage{
 \method{print}{blm}(object, ...)
 }
+\arguments{
+\item{object}{an blm object for which print is desired.}
+
+\item{...}{additional arguments.}
+}
 \value{
 The linear function used and coefficients of an object of class "blm".
 }

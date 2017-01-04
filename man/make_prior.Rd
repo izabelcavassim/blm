@@ -10,6 +10,8 @@ make_prior(model, alpha, ...)
 \item{model}{A formula describing the model.}
 
 \item{alpha}{The prior precision, the hyperparameter of Prior Distribution}
+
+\item{...}{additional data}
 }
 \value{
 The mean and covariance matrix

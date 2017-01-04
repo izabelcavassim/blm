@@ -6,6 +6,11 @@
 \usage{
 \method{plot}{blm}(object, ...)
 }
+\arguments{
+\item{object}{an blm object for which the plots are desired.}
+
+\item{...}{additional arguments.}
+}
 \value{
 plot of Residuals vs Fitted values.
 }
@@ -13,6 +18,6 @@ plot of Residuals vs Fitted values.
 It returns different plots of object blm
 }
 \seealso{
-\code{\link[blm]}, \code{\link[blm]{fitted}}, \code{\link[blm]{residuals}}
+blm, fitted.
 }
 

@@ -1,12 +1,18 @@
 context("blm")
 
+
 test_that("we can fit blm objects", {
-  # Creating a example
-  sample = 30
-  x = rnorm(sample, 20, 3)
-  y = rnorm(sample, x, 1)
+
+  # Creating an example
+  n = 100
+  x = rnorm(n)
+  z = rnorm(n)
+  predictors = data.frame(x, z)
+  y = with(predictors, rnorm(n, mean = 3*x + 5*z + 2))
+  model <- y ~ x + z
+
   #Using alpha and beta as 1
-  test_blm = blm(y ~ x, alpha = 1, beta = 1)
+  test_blm = blm(y ~ x + z, alpha = 1, beta = 1)
 
   # If it is a blm class
   expect_that(test_blm, is_a("blm"))
@@ -32,3 +38,4 @@ test_that("we can fit blm objects", {
   # I need to test for x and y be the same length
 
 })
+

@@ -6,6 +6,11 @@
 \usage{
 \method{deviance}{blm}(object, ...)
 }
+\arguments{
+\item{object}{an blm object for which deviance is desired.}
+
+\item{...}{additional arguments.}
+}
 \value{
 The deviance value from the object of class blm.
 }
