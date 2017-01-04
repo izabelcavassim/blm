@@ -1,8 +1,10 @@
 ---
-title: "Statistics"
-author: "Maria Izabel"
-date: "January 3, 2017"
-output: html_document
+title: "Statistical Background"
+author: "Maria Izabel Cavassim Alves"
+date: "`r Sys.Date()`"
+output:
+  md_document:
+    variant: markdown_github
 ---
 
 ```{r setup, include=FALSE}
