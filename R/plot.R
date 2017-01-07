@@ -15,31 +15,35 @@ plot.blm <- function(object, ...) {
     fit = fitted(object)
     resid = residuals(object)
 
-    #plot(fit, resid, pch = 20, xlab = 'Fitted values', ylab = 'Residuals', main = 'Residuals vs Fitted')
-    #abline(h = 0, col = "gray60", lty = 2)
     # Transforming in a dataframe
-    #plot_data = as.data.frame(cbind(fit, resid))
+    plot_data = as.data.frame(cbind(fit, resid))
 
     # Plotting with smoothing function defined by the formula of blm object
-    p1 = ggplot(plot_data, aes(x = fit, y = resid)) + geom_point() + geom_smooth(formula = object$formula, colour = 'red') + theme_bw()
-    p1 = p1 + geom_hline(yintercept=0, linetype="dotted") +
-    labs(
+    p1 =  ggplot2::ggplot(plot_data, ggplot2::aes(x = fit, y = resid)) +  ggplot2::geom_point() +  ggplot2::geom_smooth(formula = object$formula, colour = 'red') +  ggplot2::theme_bw()
+    p1 = p1 +  ggplot2::geom_hline(yintercept=0, linetype="dotted") +
+    ggplot2::labs(
       x = 'Fitted values',
       y = 'Residuals',
       title = 'Residuals vs Fitted'
     )
 
-    return(p1)
 
-    # p2: Standardized residuals vs Theoretical quantiles
+    # Second plot: Standardized residuals vs Theoretical quantiles
 
     # Standardized residual:
     sd_resid = resid/sd(resid)
 
     # Theoretical Quantile plot:
-    qqplot(resid(test_blm), sd_resid, xlab = 'Theoretical Quantiles', ylab = 'Standardized residuals', main = 'Normal Q-Q plot')
+    plot2_data = as.data.frame(resid(object), sd_resid)
+    p2 = ggplot2::ggplot(plot2_data, ggplot2::aes(sample = sd_resid)) +  ggplot2::theme_bw()
+    p2 = p2 + ggplot2::stat_qq() +
+    ggplot2::labs(
+        x = 'Theoretical Quantiles',
+        y = 'Standardized residuals',
+        title = 'Normal Q-Q plot'
+    )
+  gridExtra::grid.arrange(p1, p2, ncol=2, nrow =1)
+
   }
-  if(is.null(data) == FALSE && ncol(data) > 2){
-    # I DONT KNOW YET
+
   }
-}
