@@ -34,7 +34,7 @@ plot.blm <- function(object, ...) {
     sd_resid = resid/sd(resid)
 
     # Theoretical Quantile plot:
-    plot2_data = as.data.frame(resid(object), sd_resid)
+    plot2_data = as.data.frame(cbind(resid(object), sd_resid))
     p2 = ggplot2::ggplot(plot2_data, ggplot2::aes(sample = sd_resid)) +  ggplot2::theme_bw()
     p2 = p2 + ggplot2::stat_qq() +
     ggplot2::labs(
@@ -42,7 +42,12 @@ plot.blm <- function(object, ...) {
         y = 'Standardized residuals',
         title = 'Normal Q-Q plot'
     )
-  gridExtra::grid.arrange(p1, p2, ncol=2, nrow =1)
+    # Third plot: Fitted values vs square root of standardized residuals
+    plot3_data = as.data.frame(cbind(fit, sd_resid))
+    p3 = ggplot2::qplot(plot3_data[,1], plot3_data[,2], main = 'Scale-Location', xlab = 'Fitted values', ylab='sqrt(Standardized residuals)') + ggplot2::theme_bw()
+
+
+    gridExtra::grid.arrange(p1, p2,p3, ncol=2, nrow =2)
 
   }
 
