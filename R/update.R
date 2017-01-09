@@ -20,6 +20,8 @@ update <- function(model, prior, alpha, beta, ...){
 
   data = model.frame(model)
   theta_x = noresponse_matrix(model)
+  y = model.response(data)
+
   S_xy = solve(prior$S_xy + beta * t(theta_x) %*% theta_x)
   m_xy = beta * S_xy %*% t(theta_x) %*% y
   return(list(m_xy=m_xy, S_xy=S_xy))
