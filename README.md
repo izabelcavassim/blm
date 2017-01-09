@@ -5,7 +5,7 @@ Bayesian linear regresssion (blm)
 
 *y*<sub>*i*</sub> = *w*<sub>0</sub> + *w*<sub>1</sub><sup>*T*</sup>*x*<sub>*i*</sub> + *ε*, where *ε*<sub>*i*</sub> is *N*(0, *σ*<sup>2</sup>).
 
-The peculiarities of the Bayesian model compared to the frequentist model is that allow us to give our assumptions, or prior beliefs, about unknown parameters (w) by specifying the prior distribution over those parameters before seeing the data. The way we do it is by treating the weights (w) as random variables coming from a distribution we have partial knowlegde about (*p*(*w*|*α*)=*N*(0, *α*<sup>−</sup>1*I*)). Once we observe the data we can compute the posterior probability distribution for the parameters, given the observed data (*p*(*w*|*x*, *y*)) and the hyperparameters *α* and *β*. (for a bit more details access \[here\])
+The peculiarities of the Bayesian model compared to the frequentist model is that allow us to give our assumptions, or prior beliefs, about unknown parameters (w) by specifying the prior distribution over those parameters before seeing the data. The way we do it is by treating the weights (w) as random variables coming from a distribution we have partial knowlegde about (*p*(*w*|*α*)=*N*(0, *α*<sup>−</sup>1*I*)). Once we observe the data we can compute the posterior probability distribution for the parameters, given the observed data (*p*(*w*|*x*, *y*)) and the hyperparameters *α* and *β*. (for a bit more details access \[<https://github.com/izabelcavassim/blm/blob/master/Background.md>\])
 
 The posterior distribution can be lately used to:
 
@@ -19,19 +19,19 @@ How to install
 
 Open R and then follow the 3 next steps:
 
-1.  You first need to install the devtools package through CRAN.
+\*1. You first need to install the devtools package through CRAN.
 
 ``` r
 install.packages("devtools")
 ```
 
-1.  Load the package just installed.
+\*2. Load the package just installed.
 
 ``` r
 library("devtools")
 ```
 
-1.  And then use the 'install\_github' feature to access the blm package
+\*3. And then use the 'install\_github' feature to access the blm package
 
 ``` r
 install_github("izabelcavassim/blm")
