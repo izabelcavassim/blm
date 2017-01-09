@@ -4,9 +4,10 @@ test_that("predict values of blm approximate lm values", {
   #set.seed(100)
 
   # Creating an example
-  n = 10
+  n = 100
   x = rnorm(n)
-  y = rnorm(n, mean = 3*x + 2)
+  y = rnorm(n, mean = 3*x)
+  model <- y ~ x
 
   test_blm = blm(y ~ x, alpha = 3, beta = 3.5)
   test_lm = lm(y ~ x)

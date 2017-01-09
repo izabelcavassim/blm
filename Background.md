@@ -3,7 +3,7 @@ Bayesian linear regresssion (blm)
 
 `blm` is a R package for fitting linear models in which the statistical analysis were undertaken within the context of Bayesian inference. The ingredients for a regression linear model include the response vector *y* = (*y*<sub>1</sub>, *y*<sub>2</sub>, *y*<sub>3</sub>, ..., *y*<sub>*n*</sub>) and a *n* x *p* design matrix (e.g. composed of explanatory variables) *X* = \[*x*<sub>1</sub>, *x*<sub>2</sub>, ..., *x*<sub>*p*</sub>\]. The linear regression model is composed by an intercept (*w*<sub>0</sub>), a slope (*w*<sub>1</sub>/*β*) and the error term:
 
-*y*<sub>*i*</sub> = *w*<sub>0</sub> + *w*<sub>1</sub><sup>*T*</sup>*x*<sub>*i*</sub> + *ε*, where *ε*<sub>*i*</sub> is *N*(0, *σ*<sup>2</sup>).
+*y*<sub>*i*</sub> = *w*<sub>0</sub> + *w*<sub>1</sub><sup>*T*</sup>*x*<sub>*i*</sub> + *Î**µ*, where *Î**µ*<sub>*i*</sub> is *N*(0, *σ*<sup>2</sup>).
 
 Once we have w, *σ*<sup>2</sup>, the predictors and the response variable, the likelihood function can be calculated as follow:
 

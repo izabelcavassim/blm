@@ -2,8 +2,7 @@
 % Please edit documentation in R/predict.R
 \name{predict.blm}
 \alias{predict.blm}
-\title{Model prediction
-predict is inspired by the generic function from stats and make predictions based on the fitted blm model object.}
+\title{Model prediction}
 \usage{
 \method{predict}{blm}(object, ...)
 }
@@ -16,7 +15,6 @@ predict is inspired by the generic function from stats and make predictions base
 If additional data is provided, it gives the predicted values by evaluating the regression function. Otherwise, it gives the predictions based on the data used to fit the model
 }
 \description{
-Model prediction
-predict is inspired by the generic function from stats and make predictions based on the fitted blm model object.
+Predict is inspired by the generic function from stats and make predictions based on the fitted blm model object.
 }
 

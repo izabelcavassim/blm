@@ -1,18 +1,19 @@
 context('Residuals')
 
 test_that("residual values of blm approximate lm values", {
-  #set.seed(100)
+  set.seed(100)
 
   # Creating an example
-  n = 10
+  n = 100
   x = rnorm(n)
   y = rnorm(n, mean = 3*x)
+  model <- y ~ x
 
-  test_blm = blm(y ~ x, alpha = 3, beta = 3.3)
-  test_lm = lm(y ~ x)
+  test_blm = blm(model, alpha = 3, beta = 3.3)
+  test_lm = lm(model)
 
   print(residuals(test_blm))
   print(residuals(test_lm))
-  expect_equal(residuals(test_blm), residuals(test_lm), tolerance = 0.08)
+  expect_equal(residuals(test_blm), residuals(test_lm), tolerance = 0.1)
 
 })
