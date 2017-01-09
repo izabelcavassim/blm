@@ -7,7 +7,7 @@
 #' @import stats
 #' @export
 
-print.summary.blm <- function(object, ...) {
+summary.blm <- function(object, ...) {
   sapply(object$data, summary)
   cat('\nCall:\n')
   print(object$Call)
