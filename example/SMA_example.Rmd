@@ -1,0 +1,70 @@
+---
+title: "Genetics example in Bayesian linear regression"
+author: "Maria Izabel Cavassim Alves"
+date: "`r Sys.Date()`"
+output:
+  md_document:
+    variant: markdown_github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Association mapping: detecting single nucleotide polymorphisms associated with obesity
+
+One of the main goals in modern genetics is to map genes that affect important phenotypic traits. To detect associations between genotypic data and traits of interest some data analysis approach as single marker analysis (SMA), simple interval mapping (SIM), multiple interval mapping (MIM) can be used. In this exercise we are going to focus on the simplest method: SMA. 
+
+Single marker analysis (SMA), one of the first approaches used in Genome Wide Association Studies (GWAS), aims to fit each SNP along the genome at time in a model. Assuming that the SNP is in Linkage Desiquilibrium with a causal variant, an association can be tested.The association could be conducted in different statistical ways: including t-tests, ANOVA, regression, maximum likelihood estimations and log likelihood ratios. To make it simple, we are going to use the regression model, which uses genotype as predictor variables of the regression analysis.
+
+```{r}
+# Downloading the data
+#install.packages('BGLR')
+library(BGLR)
+data(mice)
+
+# Dowloading the linear regression package
+library(blm)
+
+# all variables can be accessed here
+ls() 
+```
+
+The mice data comes from an experiment carried out to detect and locate QTLs for complex traits in a mice population (Valdar et al. 2006a; 2006b). This data has already been analyzed for comparing genome-assisted genetic evaluation methods (Legarra et al. 2008). The data file consists of 1814 individuals, each genotyped for 10,346 polymorphic markers. The trait here is body mass index (BMI), and additional information about body weight, season, month and day. 
+* Matrix mice.A: contains the pedigree; 
+* Matrix mice.X: contains the markes information and;
+* Mice.pheno: contains phenotypical information. 
+
+We will treat the genetic effects as fixed factor in the regression model and fit each marker individually to compute the p-values of an association:
+
+$y= \mu1_n+X_i \beta_i+ e$,
+
+Where $y$ is the vector of phenotypic records (BMI), $\mu$ is the overall mean, $1_n$ is a vector of n ones; $\beta_i$ represents the genetic effects of markers (following an Additive Model), $X_i$ is the design matrix for each marker and $e$ is the vector of random residual effects. 
+
+```{r}
+# 1 Loading and preparing the input data (toy example)
+Y = mice.pheno[500,]; X = mice.X[500,];
+
+# 2 Normalizing the phenotypic data
+y = Y$Obesity.BMI
+y = (y-mean(y))/sd(y) 
+
+# 3 Creating a function that applies blm 
+gwas_single_marker = function(snp_effect) {
+	fit = blm(y ~ snp_effect, alpha = 1, beta = 1.3)
+	fit$coefficients[2,1]
+}
+
+# 3 Test for instance the first SNP
+gwas_single_marker(X[,1])
+
+# 4 Test all the snps once a time (it takes a bit of time)
+gwas_BW_results = t(apply(X, 2, gwas_single_marker))
+
+# 5 Extracting significant p-values while correcting for multiple test
+alpha_corrected = 0.05/nrow(gwas_BW_results)
+
+gwas_significant = gwas_BW_results[gwas_BW_results[,4] <= alpha_corrected, ]
+
+gwas_significant
+```
