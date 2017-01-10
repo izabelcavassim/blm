@@ -51,7 +51,37 @@ install_github("izabelcavassim/blm")
 
 ## Example
 
+```{R eval=FALSE}
+library(datasets)
+data("iris")
+attach(iris)
 
+# There is a high correlation between petal lenght and sepal length
+cor(iris$Petal.Length, iris$Pepal.Length)
+
+# Visualizing it
+plot(Sepal.Length, Petal.Length, pch=21, bg=c("red","green3","blue")[unclass(iris$Species)], main="Edgar Anderson's Iris Data", ylab = 'Petal Length', xlab = 'Sepal Length')
+
+# We can predict new Pepal length from Sepal Length
+reg = blm(Petal.Length ~ Sepal.Length, alpha = 1, beta = 1.3)
+class(reg)
+print(reg)
+(coef_reg = coefficients(reg))
+(summ_reg = summary(reg))
+
+slope = coef_reg[2,1]
+intercept = coef_reg[1,1]
+
+# Plotting
+plot(reg)
+
+# Prediction of Petal Length given a new data
+new_Sepal = data.frame(Sepal.Length = runif(100, min(Sepal.Length), max(Sepal.Length)))
+
+# Predicting
+predict_Plength = predict(reg, new_Sepal)
+head(predict_Plength)
+```
 
 ## Author(s)
 
