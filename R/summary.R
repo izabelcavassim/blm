@@ -10,18 +10,50 @@
 summary.blm <- function(object, ...) {
   sapply(object$data, summary)
   cat('\nCall:\n')
-  print(object$Call)
+  print(object$sys)
 
   cat('\nResiduals:\n')
-  print(summary(object$Residuals))
+  print(summary(residuals(object)))
   #sapply(object$residuals, summary)
 
   cat('\nCoefficients:\n')
-  print(object$Coefficients)
-  print('Estimate, Std error, t value, Pr(>|t|)')
+  print(object$coefficients)
 
-  cat('\nResidual standard error, numberX, on numberZ degrees of freedom\n')
-  cat('\nMultiple R-squared:\n')
+  # Finding out if the coefficients are significant or not
+  # If 0 is outside the coefficient effect CI then we can conclude that we had
+  # a significant effect
+  coefs = row.names(coef(object))
+
+  # I have decided just to check its significance in 5% alpha level
+  test_significance = function(coefs, object){
+  stars_sig = NULL
+  for( i in 1:length(coefs)){
+    CI = confint(object, parm = i)
+    if(prod(CI) > 0){
+      stars_sig[i] = '*'
+    }
+    else{
+      stars_sig[i] = ' '
+    }
+
+  }
+  return(stars_sig)
+  }
+
+  sigs = test_significance(coefs, object)
+  cat('\nCoefficient Significance (0.05)\n')
+  for(i in 1:length(coefs)){
+    cat(sprintf("\"%s\" \"%s\"\n", coefs[i], sigs[i]))
+
+  }
   cat('Adjusted R-squared:\n')
+
+  # Defining the class blm
+  obj <- list(data = object,
+              sys = object$sys,
+              residuals = residuals(object),
+              coefficients = coef(object),
+              significance = sigs)
+  obj
 
 }
