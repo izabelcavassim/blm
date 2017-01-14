@@ -47,13 +47,19 @@ summary.blm <- function(object, ...) {
 
   }
   cat('Adjusted R-squared:\n')
+  # Total sum of squares
+  SS_total = sum((predict(object) - mean(object$data$y))^2)
+  SS_residuals = sum((object$data$y - predict(object))^2)
+  R_squared = 1 - (SS_residuals/SS_total)
 
   # Defining the class blm
   obj <- list(data = object,
               sys = object$sys,
               residuals = residuals(object),
               coefficients = coef(object),
-              significance = sigs)
+              significance = sigs,
+              SS_total = SS_total,
+              SS_residuals = SS_residuals,
+              R_squared = R_squared)
   obj
-
 }
