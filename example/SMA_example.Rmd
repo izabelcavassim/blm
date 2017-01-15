@@ -43,20 +43,31 @@ Where $y$ is the vector of phenotypic records (BMI), $\mu$ is the overall mean, 
 
 ```{r}
 # 1 Loading and preparing the input data (toy example)
-Y = mice.pheno[500,]; X = mice.X[500,];
+Y = mice.pheno; X = as.matrix(mice.X[,0:500]);
 
 # 2 Normalizing the phenotypic data
 y = Y$Obesity.BMI
 y = (y-mean(y))/sd(y) 
 
 # 3 Creating a function that applies blm 
-gwas_single_marker = function(snp_effect) {
-	fit = blm(y ~ snp_effect, alpha = 1, beta = 1.3)
-	fit$coefficients[2,1]
+gwas_single_marker = function(marker) {
+	fit = blm(y ~ marker, alpha = 1, beta = 1.3)
+	#fit$coefficients[2,1]
 }
 
+x = 
+test_lm = lm(y ~ X[,1])
+test_blm = blm(y ~ X[,1], alpha = 1, beta = 1.3)
+
+confint(test_blm, parm = 'x')
 # 3 Test for instance the first SNP
 gwas_single_marker(X[,1])
+
+
+# The distribution of the weigths can be found:
+library(MASS)
+
+dist = mvrnorm(n = 5 ,mu = test_blm$posterior$m_xy, Sigma = test_blm$posterior$S_xy)
 
 # 4 Test all the snps once a time (it takes a bit of time)
 gwas_BW_results = t(apply(X, 2, gwas_single_marker))
