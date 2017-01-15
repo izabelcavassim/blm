@@ -9,14 +9,14 @@ make_prior(model, alpha, ...)
 \arguments{
 \item{model}{A formula describing the model.}
 
-\item{alpha}{The prior precision, the hyperparameter of Prior Distribution}
+\item{alpha}{The prior precision, the hyperparameter of Prior Distribution.}
 
-\item{...}{additional data}
+\item{...}{additional data.}
 }
 \value{
-The mean and covariance matrix
+The mean and covariance matrix.
 }
 \description{
-It takes the model description and the prior precision alpha to build the prior distribution
+It takes the model description and the prior precision alpha to build the prior distribution.
 }
 
