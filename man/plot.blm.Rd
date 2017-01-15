@@ -2,12 +2,12 @@
 % Please edit documentation in R/plot.R
 \name{plot.blm}
 \alias{plot.blm}
-\title{Plot blm object}
+\title{Plot blm x}
 \usage{
-\method{plot}{blm}(object, ...)
+\method{plot}{blm}(x, ...)
 }
 \arguments{
-\item{object}{an blm object for which the plots are desired.}
+\item{x}{an blm x for which the plots are desired.}
 
 \item{...}{additional arguments.}
 }
@@ -15,7 +15,7 @@
 plot of Residuals vs Fitted values.
 }
 \description{
-It returns different plots of object blm
+It returns different plots of x blm
 }
 \seealso{
 blm, fitted.

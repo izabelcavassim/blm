@@ -4,10 +4,10 @@
 \alias{print.blm}
 \title{Model print}
 \usage{
-\method{print}{blm}(object, ...)
+\method{print}{blm}(x, ...)
 }
 \arguments{
-\item{object}{an blm object for which print is desired.}
+\item{x}{an blm object for which print is desired.}
 
 \item{...}{additional arguments.}
 }
