@@ -5,7 +5,7 @@
 #'
 #' @param object a model object of class blm for which has at least one predictor variable.
 #' @param ... additional arguments.
-#' @return fitted arguments of the model (the point estimates of predictors).
+#' @return the coefficients of the model of class blm().
 #' @import stats
 #' @export
 

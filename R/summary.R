@@ -3,7 +3,7 @@
 #' @description It is inpired by the generic and lm function 'summary' and it aims to format and summarize the statistical outputs from an object of class 'blm'.
 #' @param object an blm object for which summary is desired.
 #' @param ... additional arguments.
-#' @return MAKE HERE IN MORE DETAIL.
+#' @return A summary.blm object, which contains summary statistics and the following attributes: "data", "sys", "residuals", "coefficients", "significance", "SS_total", "SS_residuals", "R_squared".
 #' @import stats
 #' @export
 
