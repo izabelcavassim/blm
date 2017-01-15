@@ -47,6 +47,11 @@ library("devtools")
 install_github("izabelcavassim/blm")
 ```
 
+## Functions associted with blm
+
+
+
+
 ## Example
 
 ```{R eval=FALSE}
