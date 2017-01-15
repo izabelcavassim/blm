@@ -48,8 +48,8 @@ summary.blm <- function(object, ...) {
   }
 
   # Total sum of squares
-  SS_total = sum((predict(object) - mean(object$data$y))^2)
-  SS_residuals = sum((object$data$y - predict(object))^2)
+  SS_total = sum((predict(object) - mean(object$data[,1]))^2)
+  SS_residuals = sum((object$data[,1] - predict(object))^2)
   R_squared = 1 - (SS_residuals/SS_total)
   cat('Adjusted R-squared:', R_squared)
 
