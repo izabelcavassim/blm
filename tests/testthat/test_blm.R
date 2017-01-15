@@ -32,6 +32,7 @@ test_that("we can fit blm objects", {
   expect_that(blm(y~ x, alpha = -1, beta = -2),  throws_error())
 
   # I need to test for y not being a empty list
+
   # I need to test for x not being a empty list
   # I need to test for x and y be the same length
 
