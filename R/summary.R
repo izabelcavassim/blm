@@ -22,7 +22,7 @@ summary.blm <- function(object, ...) {
   # Finding out if the coefficients are significant or not
   # If 0 is outside the coefficient effect CI then we can conclude that we had
   # a significant effect
-  coefs = row.names(coef(object))
+  coefs = colnames(coef(object))
 
   # I have decided just to check its significance in 5% alpha level
   test_significance = function(coefs, object){
@@ -46,13 +46,14 @@ summary.blm <- function(object, ...) {
     cat(sprintf("\"%s\" \"%s\"\n", coefs[i], sigs[i]))
 
   }
-  cat('Adjusted R-squared:\n')
+
   # Total sum of squares
   SS_total = sum((predict(object) - mean(object$data$y))^2)
   SS_residuals = sum((object$data$y - predict(object))^2)
   R_squared = 1 - (SS_residuals/SS_total)
+  cat('Adjusted R-squared:', R_squared)
 
-  # Defining the class blm
+  # Making an 'invisible'list as output
   obj <- list(data = object,
               sys = object$sys,
               residuals = residuals(object),
@@ -61,5 +62,5 @@ summary.blm <- function(object, ...) {
               SS_total = SS_total,
               SS_residuals = SS_residuals,
               R_squared = R_squared)
-  obj
+  return(invisible(obj))
 }
