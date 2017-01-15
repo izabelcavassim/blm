@@ -1,5 +1,5 @@
 
-#' @title Bayesian linear model.
+#' @title Bayesian linear model
 #'
 #' @description Fits a model, given as a formula, optionally with data provided through the "..." parameter.
 #'

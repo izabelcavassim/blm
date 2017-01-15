@@ -2,25 +2,23 @@
 % Please edit documentation in R/confint.R
 \name{confint.blm}
 \alias{confint.blm}
-\title{Model confint.}
+\title{Confidence Intervals}
 \usage{
 \method{confint}{blm}(object, parm, level = 0.95, ...)
 }
 \arguments{
-\item{object}{a model object of class blm for which has at least one predictor variable.}
+\item{object}{a fitted model object of class blm that has at least one predictor variable.}
 
-\item{parm}{a specified parameter/argument from the model to be extracted the confidence intervals. It could be numbers (columns of the model data.frame) or names: 'y', 'x', 'z'...}
+\item{parm}{a specified parameter/argument of the model that the confidence intervals will be extracted. It could be numbers (columns of the model data.frame) or names: 'y', 'x', 'z'...}
 
-\item{level}{the confidence level required, which quantiles are extracted in the base of: c(level/2, 1-level/2).}
+\item{level}{the confidence level required. Quantiles are extracted in the base of: c(level/2, 1-level/2).}
 
 \item{...}{additional arguments.}
-
-\item{model}{the linear model to be used}
 }
 \value{
-It will returns the lower and upper confidence intervals of each parameter given.
+It will return the lower and upper confidence intervals of each parameter given.
 }
 \description{
-Confint is inspired by stats function and computes the confidence intervals for the fitted arguments of a blm model.
+Confint is inspired by stats package and computes the confidence intervals for the fitted arguments of a blm model.
 }
 

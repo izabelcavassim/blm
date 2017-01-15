@@ -7,7 +7,7 @@
 \method{deviance}{blm}(object, ...)
 }
 \arguments{
-\item{object}{an blm object for which deviance is desired.}
+\item{object}{an blm object for which the deviance is desired.}
 
 \item{...}{additional arguments.}
 }

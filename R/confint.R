@@ -1,12 +1,11 @@
-#' @title Model confint.
-#' @description Confint is inspired by stats function and computes the confidence intervals for the fitted arguments of a blm model.
+#' @title Confidence Intervals
+#' @description Confint is inspired by stats package and computes the confidence intervals for the fitted arguments of a blm model.
 #'
-#' @param object a model object of class blm for which has at least one predictor variable.
-#' @param parm a specified parameter/argument from the model to be extracted the confidence intervals. It could be numbers (columns of the model data.frame) or names: 'y', 'x', 'z'...
-#' @param level the confidence level required, which quantiles are extracted in the base of: c(level/2, 1-level/2).
+#' @param object a fitted model object of class blm that has at least one predictor variable.
+#' @param parm a specified parameter/argument of the model that the confidence intervals will be extracted. It could be numbers (columns of the model data.frame) or names: 'y', 'x', 'z'...
+#' @param level the confidence level required. Quantiles are extracted in the base of: c(level/2, 1-level/2).
 #' @param ... additional arguments.
-#' @param model the linear model to be used
-#' @return It will returns the lower and upper confidence intervals of each parameter given.
+#' @return It will return the lower and upper confidence intervals of each parameter given.
 #' @import stats
 #' @export
 

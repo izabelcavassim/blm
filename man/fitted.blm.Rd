@@ -15,7 +15,7 @@
 fitted values extracted from the object model of class blm.
 }
 \description{
-fitted is inspired by the generic function from stats which extracts fitted values (response)
+fitted is inspired by the generic function from stats which extracts fitted values (response).
 }
 \seealso{
 blm, fitted.blm, residuals.blm

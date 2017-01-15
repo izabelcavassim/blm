@@ -2,7 +2,7 @@
 % Please edit documentation in R/blm.R
 \name{blm}
 \alias{blm}
-\title{Bayesian linear model.}
+\title{Bayesian linear model}
 \usage{
 blm(model, ...)
 }
