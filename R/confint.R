@@ -37,11 +37,6 @@ confint.blm <- function(object, parm, level= 0.95, ...) {
     return(quantiles)
   }
 
-  # Other coefficients than 'y'
-  if(is.null(parm)){
-    parm = rownames(object$coefficients)
-  }
-
   quantil_upper = qnorm(p = (1-level)/2, mean = m_xy[parm,], sd = sqrt(diag(S_xy)[parm]), lower.tail = F)
   quantil_lower = qnorm(p = (1 - (1 -level)/2), mean =m_xy[parm,], sd = sqrt(diag(S_xy)[parm]), lower.tail = F)
 
