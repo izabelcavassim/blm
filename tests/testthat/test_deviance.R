@@ -1,7 +1,6 @@
 context('deviance')
 
 test_that('blm Deviance approximates lm deviance', {
-  set.seed(100)
 
   # Creating an example
   n = 100

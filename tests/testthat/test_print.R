@@ -1,7 +1,7 @@
 context("print")
 
 test_that("print is giving an output", {
-  library(ggplot2)
+
   # Creating an example
   n = 100
   x = rnorm(n)

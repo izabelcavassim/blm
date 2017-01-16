@@ -1,6 +1,7 @@
 context("plot")
 
 test_that("Plotting is giving an output", {
+
   library(ggplot2)
   # Creating an example
   n = 100

@@ -1,7 +1,6 @@
 context("confint")
 
 test_that("fitted values of blm approximate lm values", {
-  set.seed(100)
 
   # Creating an example
   n = 100

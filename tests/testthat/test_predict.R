@@ -1,7 +1,6 @@
 context("Predict")
 
 test_that("predict values of blm approximate lm values", {
-  #set.seed(100)
 
   # Creating an example
   n = 100
@@ -11,9 +10,6 @@ test_that("predict values of blm approximate lm values", {
 
   test_blm = blm(y ~ x, alpha = 3, beta = 3.5)
   test_lm = lm(y ~ x)
-
-  #print(predict(test_blm))
-  #print(predict(test_lm))
 
   # Without new data
   expect_equal(predict(test_blm), predict(test_lm), tolerance = 0.05)

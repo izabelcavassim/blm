@@ -1,7 +1,6 @@
 context('Residuals')
 
 test_that("residual values of blm approximate lm values", {
-  set.seed(100)
 
   # Creating an example
   n = 100

@@ -2,7 +2,6 @@
 context("confint")
 
 test_that("confidence intervals of blm approximates lm", {
-  #set.seed(100)
 
   # Creating an example
   n = 100
