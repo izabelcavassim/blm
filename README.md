@@ -43,12 +43,12 @@ Functions associted with blm
 
 ### The blm model constructor
 
--   `blm()` Fits a model, given as a formula, optionally with data provided through the "..." parameter.It takes the model specification in the form of a formula as its parameter model and the prior precision alpha and the “precision” of the data beta. It then computes the mean and the covariance matrix for the model fitted to the data. **`make_prior()` Constructs a prior distribution for the weight vectors, which are Normally distributed: *N*(**0**,  **S**<sub>0</sub>) with **0**′=(0, 0) and **S**<sub>0</sub> = \[\[1/*α*, 0\],\[0, 1/*α*\]\]. And alpha is the hyperparameter or precision It returns a prior distribution, with a vector of means and a covariance matrix **`noresponse_matrix()` \*\*`update()`
+-   `blm()` Fits a model, given as a formula, optionally with data provided through the "..." parameter.It takes the model specification in the form of a formula as its parameter model and the prior precision alpha and the “precision” of the data beta. It then computes the mean and the covariance matrix for the model fitted to the data. *`make_prior()` Constructs a prior distribution for the weight vectors, which is normally distributed: *N*(**0**,  **S**<sub>0</sub>) with **0**′=(0, 0) and **S**<sub>0</sub> = \[\[1/*α*, 0\],\[0, 1/*α*\]\]. And alpha is the hyperparameter or precision It returns a prior distribution, with a vector of means and a covariance matrix *`noresponse_matrix()` \*`update()`
 
 ### Other functions
 
 -   `coef()` Returns the coefficients of the model of class blm().
--   `confint()` Returns the lower and upper confidence intervals of a parameter (parm) given. The usage of confint is as follow: `confint(object, parm, level = 0.95, ...)`. The parameter parm can be assigned with numbers (columns of the model data.frame) or names: 'y', 'x', 'z'... *`deviance()` It returns the deviance of a fitted blm model object. *`fitted()` Returns the fitted values extracted from the object model of class blm. *`plot()` Returns 4 grid arranged plots of the blm model object. The currently available plots are: 'Residuals vs Fitted values', 'Normal Q-Q plot' of standardized residuals', 'Regression Model' a plot of the first predictor and its response and a 'Histogram of Residuals' to observe the normality of the distribution. *`predict()` If additional data is provided, it gives the predicted values by evaluating the regression function. Otherwise, it gives the predictions based on the data used to fit the model. *`print()` It prints the called function and the coefficients of a blm model object. *`residuals()` It returns the model residuals (observed - predicted) from a blm object. \*`summary()` Returns a summary.blm object, which contains summary statistics and the following attributes: "data", "sys", "residuals", "coefficients", "significance", "SS\_total", "SS\_residuals", "R\_squared".
+-   `confint()` Returns the lower and upper confidence intervals of a parameter (parm) given. The usage of confint is as follow: `confint(object, parm, level = 0.95, ...)`. The parameter parm can be assigned with numbers (columns of the model data.frame) or names like: 'y', 'x', 'z'. *`deviance()` It returns the deviance of a fitted blm model object. *`fitted()` Returns the fitted values extracted from the object model of class blm. *`plot()` Returns 4 grid arranged plots of the blm model object. The currently available plots are: 'Residuals vs Fitted values', 'Normal Q-Q plot' of standardized residuals', 'Regression Model' a plot of the first predictor and its response and a 'Histogram of Residuals' to observe the normality of the distribution. *`predict()` If additional data is provided, it gives the predicted values by evaluating the regression function. Otherwise, it gives the predictions based on the data used to fit the model. *`print()` It prints the called function and the coefficients of a blm model object. *`residuals()` It returns the model residuals (observed - predicted) from a blm object. \*`summary()` Returns a summary.blm object, which contains summary statistics and the following attributes: "data", "sys", "residuals", "coefficients", "significance", "SS\_total", "SS\_residuals", "R\_squared".
 
 Example
 -------
@@ -151,7 +151,7 @@ head(predict_Plength)
 ```
 
     ##        1        2        3        4        5        6 
-    ## 5.021338 2.158418 1.404882 6.910904 1.396298 3.854103
+    ## 2.315974 5.523049 4.003330 5.124640 5.520705 6.043693
 
 Author(s)
 ---------
